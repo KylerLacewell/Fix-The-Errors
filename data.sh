@@ -12,7 +12,8 @@ cd new_data
 touch data1 data2 data3 data4 data5
 
 # Output 'author: <username>' to each data file
-echo 'author:' $HOSTNAME | sudo tee /data*
+echo 'author' $USER | sudo tee -a ~/new_data/data*
 
 # Append 'date: ' and the date in MM-DD-YYYY format to each data file
-echo 'date: ' date "+%m-%d-%Y" | sudo tee /data*
+dates=$(date +"%m/%d/%Y")
+echo ${dates} | sudo tee -a ~/new_data/data*
